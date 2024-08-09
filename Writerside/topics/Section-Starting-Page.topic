@@ -33,14 +33,10 @@
             <a href="" summary="Our near-future plans for RSP">Plans</a>
         </primary>
 
-<!--        &lt;!&ndash;    Add several topics that are less important or are relevant only for advanced/experienced users.    &ndash;&gt;-->
-<!--        <secondary>-->
-<!--            <title>Explore advanced features</title>-->
-<!--            <a href=""/>-->
-<!--            <a href="" summary="With a custom card summary"/>-->
-<!--            <a href="">Custom card title</a>-->
-<!--            <a href="" summary="With a custom card summary">Custom card title</a>-->
-<!--        </secondary>-->
+        <secondary>
+            <title>Explore advanced stuff</title>
+            <a href="" summary="Learn more about how RSP is built internally">Implementation Details</a>
+        </secondary>
 
 <!--        &lt;!&ndash;    Optionally add additional cards and links to topics that are not in this section but may be relevant.    &ndash;&gt;-->
 <!--        <misc>-->
