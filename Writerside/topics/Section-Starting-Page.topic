@@ -27,14 +27,11 @@
             <a href="Getting-started.md" type="start" summary="Install and start quickly with RSP">Getting started</a>
         </spotlight>
 
-<!--        &lt;!&ndash;    Add several topics that are most important for this section.    &ndash;&gt;-->
-<!--        <primary>-->
-<!--            <title>Get started</title>-->
-<!--            <a href=""/>-->
-<!--            <a href="" summary="With a custom card summary"/>-->
-<!--            <a href="">Custom card title</a>-->
-<!--            <a href="" summary="With a custom card summary">Custom card title</a>-->
-<!--        </primary>-->
+        <primary>
+            <title>FAQ</title>
+            <a href="" summary="Check what features of ProtoBuf is supported and which is not">Compatibility with Protobuf</a>
+            <a href="" summary="Our near-future plans for RSP">Plans</a>
+        </primary>
 
 <!--        &lt;!&ndash;    Add several topics that are less important or are relevant only for advanced/experienced users.    &ndash;&gt;-->
 <!--        <secondary>-->
