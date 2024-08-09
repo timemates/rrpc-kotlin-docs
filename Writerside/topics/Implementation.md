@@ -5,7 +5,7 @@ If you're interested, how RSP works internally, but don't want to browse code, t
 As you already know, code is generated and then serialized using ProtoBuf. In RSocket requests, there's two parts that
 is sent/received: metadata and data. If we already know what encoded in the data (it's actually type specified in schema),
 in metadata we encode the following:
-```Kotlin
+```
 message ClientMetadata {
     int32 schemaVersion = 1;
     string serviceName = 2;

@@ -85,7 +85,7 @@ rsp {
 
 Then, write your `.proto` files with services and types you need. For example:
 
-```ProtoBuf
+```
 syntax = "proto3";
 
 message Foo {
