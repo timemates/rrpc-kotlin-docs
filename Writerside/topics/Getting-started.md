@@ -5,6 +5,9 @@ So you decided to go with rRPC, let's make it quick. What do you need?
 <warning>
 rRPC is still under development, backward compatibility for communication model is not guaranteed until 1.0. For now,
 existing API is more likely to be as-is, but we need more feedback.
+
+The documentation is not up to date for now, moreover, it's all about the upcoming release of
+0.7.0 that is not released just yet.
 </warning>
 
 ## Implementation
