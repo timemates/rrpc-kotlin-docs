@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="RSP" id="Section-Starting-Page">
+       title="rRPC" id="Section-Starting-Page">
 
 <!--    A section combines multiple topics dedicated to a specific subject.
             Add a starting page to provide an overview of the topics in the section.
@@ -16,26 +16,26 @@
             For other groups, try to keep the number between 2 and 6, but you can add more if necessary.-->
 
     <section-starting-page>
-        <title>RSP Documentation</title>
+        <title>rRPC Documentation</title>
         <description>
-            These topics will help you get started with RSP.
+            These topics will help you get started with rRPC.
         </description>
 
         <!--    Add up to 2 topics that you want to promote. Use the "type" attribute to select an icon.    -->
         <spotlight>
-            <a href="Overview.md" type="idea" summary="The idea and motivation behind RSP development">Overview</a>
-            <a href="Getting-started.md" type="start" summary="Install and start quickly with RSP">Getting started</a>
+            <a href="Overview.md" type="idea" summary="The idea and motivation behind rRPC development">Overview</a>
+            <a href="Getting-started.md" type="start" summary="Install and start quickly with rRPC">Getting started</a>
         </spotlight>
 
         <primary>
             <title>FAQ</title>
             <a href="Compatibility-with-ProtoBuf.md" summary="Check what features of ProtoBuf is supported and which is not">Compatibility with Protobuf</a>
-            <a href="Plans.md" summary="Our near-future plans for RSP">Plans</a>
+            <a href="Plans.md" summary="Our near-future plans for rRPC">Plans</a>
         </primary>
 
         <secondary>
             <title>Explore advanced stuff</title>
-            <a href="Implementation.md" summary="Learn more about how RSP is built internally">Implementation Details</a>
+            <a href="Implementation.md" summary="Learn more about how rRPC is built internally">Implementation Details</a>
         </secondary>
 
 <!--        &lt;!&ndash;    Optionally add additional cards and links to topics that are not in this section but may be relevant.    &ndash;&gt;-->

@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="in"
-                 name="RSP Documentation"
+                 name="rRPC Documentation"
                  start-page="Section-Starting-Page.topic">
 
     <toc-element topic="Section-Starting-Page.topic"/>

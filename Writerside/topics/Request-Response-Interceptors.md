@@ -1,6 +1,6 @@
 # Request/Response Interceptors
 
-In the RSP framework, interceptors are a powerful mechanism that allows you to modify or augment the behavior of request
+In the rRPC framework, interceptors are a powerful mechanism that allows you to modify or augment the behavior of request
 processing in a modular and reusable manner. Interceptors can be applied both to requests (input) and responses (output).
 They operate on the `InterceptorContext`, which carries data, metadata, options, and instances related to the
 request or response.
@@ -95,7 +95,7 @@ public class SimpleLoggingResponseInterceptor : ResponseInterceptor {
 ```
 
 ## Registering interceptors
-To register your interceptor, just add it to your RSPClientConfig / RSPModule:
+To register your interceptor, just add it to your rRPCClientConfig / rRPCModule:
 <warning>
   The order of interceptors is important – it's applied strictly by how they're added. If you have some kind of
   exception handler or logging mechanism, ensure that you have it as a last one.
@@ -104,7 +104,7 @@ To register your interceptor, just add it to your RSPClientConfig / RSPModule:
 <tabs>
     <tab title="Server">
         <code-block lang="kotlin">
-    val module = RSPModule { // this: RSPModuleBuilder
+    val module = rRPCModule { // this: rRPCModuleBuilder
       // services and other ...
       requestInterceptor(MyRequestInterceptor())
       responseInterceptor(MyRequestInterceptor())
@@ -113,7 +113,7 @@ To register your interceptor, just add it to your RSPClientConfig / RSPModule:
     </tab>
     <tab title="Client">
         <code-block lang="kotlin">
-    val configuration = RSPClientConfig {
+    val configuration = rRPCClientConfig {
       requestInterceptor(MyRequestInterceptor())
       responseInterceptor(MyRequestInterceptor())
     }

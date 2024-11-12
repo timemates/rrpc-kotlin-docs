@@ -1,9 +1,9 @@
 # Overview
 
-## What is RSP?
+## What is rRPC?
 
-RSP abbreviation stands for RSocket + ProtoBuf. This framework is designed to expose APIs as RPC (Remote Procedure Call)
-Services, enabling the creation of gRPC-like services directly from `.proto` files through code generation. RSP provides
+rRPC abbreviation stands for RSocket + ProtoBuf. This framework is designed to expose APIs as RPC (Remote Procedure Call)
+Services, enabling the creation of gRPC-like services directly from `.proto` files through code generation. rRPC provides
 essential core components for both server and client-side development, making it easier to build scalable and efficient
 RPC services.
 
@@ -17,21 +17,21 @@ although easier than managing entirely separate codebases, still presents challe
 Additionally, gRPC has several limitations, especially in web environments where it lacks support for bidirectional
 streaming. This limitation complicates the development process when full-duplex communication is needed.
 
-RSP, on the other hand, is designed with simplicity in mind. Unlike gRPC, it does not require inventing new
+rRPC, on the other hand, is designed with simplicity in mind. Unlike gRPC, it does not require inventing new
 communication mechanisms or dealing with complex request schemas. It reuses existing communication model (RSocket), what
 makes it easier in adopting and supporting.Developers can even write clients using plain RSocket and Protobuf
 serialization libraries, making the framework more accessible and easier to implement.
 
-## Why Choose RSP?
+## Why Choose rRPC?
 
-The primary goal of RSP is to support a wide range of platforms and languages. Currently, the framework supports
+The primary goal of rRPC is to support a wide range of platforms and languages. Currently, the framework supports
 Kotlin (at the moment of prototyping, for convenience), with plans to extend support to Java (via a bridge), JavaScript,
-and Python in the near future. The RSP team is actively seeking feedback before the 1.0.0 release to refine the
+and Python in the near future. The rRPC team is actively seeking feedback before the 1.0.0 release to refine the
 framework's mental model and deliver a stable, user-friendly solution.
 
 ## Why Protobuf?
 
-RSP is tightly integrated with Protobuf for serialization. We believe it's the most efficient in terms of compactness
+rRPC is tightly integrated with Protobuf for serialization. We believe it's the most efficient in terms of compactness
 and versioning for now. In addition, it's one of the most popular formats. While supporting other serialization
 mechanisms could be
 beneficial, the team believes that sticking with Protobuf ensures better compatibility and understanding across

@@ -1,9 +1,9 @@
 # Getting started
 
-So you decided to go with RSP, let's make it quick. What do you need?
+So you decided to go with rRPC, let's make it quick. What do you need?
 
 <warning>
-RSP is still under development, backward compatibility for communication model is not guaranteed until 1.0. For now,
+rRPC is still under development, backward compatibility for communication model is not guaranteed until 1.0. For now,
 existing API is more likely to be as-is, but we need more feedback.
 </warning>
 
@@ -13,20 +13,20 @@ First of all, you need a gradle plugin and the following dependencies:
 
 ```Kotlin
 plugins {
-   id("org.timemates.rsp") version ("%lib-version%")
+   id("org.timemates.rrpc") version ("%lib-version%")
 }
 
 // ...
 
 dependencies {
     // for server (jvm, js, native)
-    commonMainImplementation("org.timemates.rsp:server-core:$version")
+    commonMainImplementation("org.timemates.rrpc:server-core:$version")
     
     // for client (jvm, js, native)
-    commonMainImplementation("org.timemates.rsp:client-core:$version")
+    commonMainImplementation("org.timemates.rrpc:client-core:$version")
 
     // for server & client (jvm, js, native)
-    commonMainImplementation("org.timemates.rsp:common-core:$version")
+    commonMainImplementation("org.timemates.rrpc:common-core:$version")
 }
 ```
 
@@ -35,50 +35,42 @@ for [`rsocket-kotlin`](https://github.com/rsocket/rsocket-kotlin?tab=readme-ov-f
 
 ## Initialization
 
-RSP generates code depending on the schema you specify in `.proto` files,
+rRPC generates code depending on the schema you specify in `.proto` files,
 similar to gRPC. You can learn more about protobuf [here](https://protobuf.dev/).
 
 ### Gradle Plugin
 
-Let's start with configuring RSP gradle plugin:
+Let's start with configuring rRPC gradle plugin:
 
 ```Kotlin
-rsp {
+rrpc {
    // you might need to specify your main 
    // source set (if its name is not commonMain / main)
    targetSourceSet = "commonMain"
    
-   profile {
-      // enables code-generation for client
-      client = true
-      
-      // enables code-generation for client
-      server = true
-   }
+   // folder with .proto schema files (it may have multiple sources)
+   protoSources.add("src/commonMain/proto")
    
-   paths {
-      // folder with .proto schema files
-      protoSources = "src/commonMain/proto"
-      
-      // folder where generated code will be put
-      generationOutput = "generated/rsp/src/commonMain"
-   }
-   
+   // global options
    options {
-      // indicates what builder types should be generated
-      // CLASSIC – means plain java builder, mainly for compatibility
-      // with Java
-      builderTypes = setOf(
-         MessageBuilderType.CLASSIC, 
-         MessageBuilderType.DSL,
-      )
+    permitPackageCycles = true
+   }
       
-      // if java is specified, it'll generate bridge for java
-      // for now, it's not supported, but will be soon.
-      targetLanguages = setOf(
-         TargetLanguage.JAVA, 
-         TargetLanguage.KOTLIN,
-      )
+   configurations {
+    kotlin {
+        // kotlin-specific options
+        options {
+            generateServer = true
+            generateClient = true
+      
+            // folder where generated code will be put
+            generationOutput = "generated/rrpc/src/commonMain"
+        }
+    }
+   
+    // or other languages (configurations)
+    typescript {/* ... */}
+    getByName("php") {/* ... */}
    }
 }
 ```
@@ -102,7 +94,7 @@ service BarService {
 After you finished with your ProtoBuf definitions, you can use the following:
 
 ```Bash
-./gradlew :rsp:generateCode
+./gradlew :rrpc:generateCode
 ```
 
 ### Server
@@ -127,7 +119,7 @@ And then you can use it whether with WebSockets or Sockets (via Ktor):
         <code-block lang="kotlin">
     fun Application.configureServer() {
         routing {
-            rspEndpoint("/rsp") { // this: RSPModuleBuilder
+            rrpcEndpoint("/rrpc") { // this: rRPCModuleBuilder
                 service(BarServiceImpl())
             }
         }
@@ -139,7 +131,7 @@ And then you can use it whether with WebSockets or Sockets (via Ktor):
         <code-block lang="kotlin">
     val server: TcpServer = server.bind(transport) {
         RSocketRequestHandler {
-            RSPModuleHandler(module).setup(this)
+            rRPCModuleHandler(module).setup(this)
         }
     }
     server.handlerJob.join() //wait for server to finish
@@ -150,7 +142,7 @@ And then you can use it whether with WebSockets or Sockets (via Ktor):
 ### Client
 For client, you simply initialize the class with the name of service + 'Client':
 ```Kotlin
-val configuration = RSPClientConfig {
+val configuration = rRPCClientConfig {
     // assume we have a rsocket client instance
     // for obtaining a right one, please refer to the
     // rsocket-kotlin documentation.
@@ -165,6 +157,6 @@ All other things, like ability to reconnect automatically, you can find
 at [the official documentation](https://github.com/rsocket/rsocket-kotlin/blob/master/README.md).
 
 <seealso>
-            <a href="" type="start" summary="Install and start quickly with RSP">Getting started</a>
-            <a href="" type="idea" summary="The idea and motivation behind RSP development">Why RSP?</a>
+            <a href="" type="start" summary="Install and start quickly with rRPC">Getting started</a>
+            <a href="" type="idea" summary="The idea and motivation behind rRPC development">Why rRPC?</a>
 </seealso>

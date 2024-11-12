@@ -1,6 +1,6 @@
 # ProtoBuf Options Support
 
-The RSP code-generation supports ProtoBuf options on service and method levels.
+The rRPC code-generation supports ProtoBuf options on service and method levels.
 
 <note>
 For now, option's retention is not supported. The same applies to the file-level options or

@@ -43,6 +43,6 @@ Our implementation of ProtoBuf serialization supports a subset of ProtoBuf featu
 7. **Generated Protos**:
     - Protos generated from `.proto` files are supported similarly to user-defined protos.
 
-For features not supported or additional requirements, please [open an issue](https://github.com/timemates/rsp/issues/new/choose) to discuss potential support or contributions. This will help us understand and potentially address your use cases.
+For features not supported or additional requirements, please [open an issue](https://github.com/timemates/rrpc/issues/new/choose) to discuss potential support or contributions. This will help us understand and potentially address your use cases.
 
 You may also want to learn more about options and how they're handled [here](ProtoBuf-Options.md).

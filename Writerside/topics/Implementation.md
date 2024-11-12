@@ -1,5 +1,5 @@
 # Implementation Details
-If you're interested, how RSP works internally, but don't want to browse code, this section is for you.
+If you're interested, how rRPC works internally, but don't want to browse code, this section is for you.
 
 ## Metadata
 As you already know, code is generated and then serialized using ProtoBuf. In RSocket requests, there's two parts that
@@ -40,7 +40,7 @@ For now, we support only Request-Response, Request-Stream and Request-Channel:
 | `rpc(stream T) return (stream R)` | Request-Channel  |
 
 Client-only streaming is not supported by transport (RSocket), so we don't support it either. We may support other
-request types by annotation type called `Ack`, here's [an issue](https://github.com/timemates/rsp/issues/9) to discuss.
+request types by annotation type called `Ack`, here's [an issue](https://github.com/timemates/rrpc/issues/9) to discuss.
 
 
 ___________________________________
