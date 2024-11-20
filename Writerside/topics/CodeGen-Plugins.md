@@ -1,10 +1,11 @@
 # Developing your own plugins
 Plugins are a powerful way to extend the functionality of a generator, enabling dynamic behavior, custom workflows or 
 generating code for different languages. By developing your own plugin, you can tailor the generator to suit specific 
-needs, such as processing custom inputs, providing options, or integrating with external systems.
+needs, such as processing custom inputs or integrating with external systems.
 
 This guide will walk you through the steps of creating your own plugin, covering everything from adding dependencies to 
-handling specific signals and sending back appropriate responses. Whether you are building a plugin to modify the behavior of an existing generator or to introduce new options, this tutorial will help you get started with the Plugin API.
+handling specific signals and sending back appropriate responses. Whether you are building a plugin to add the behavior 
+to `rrgcli`, this tutorial will help you get started with the Plugin API.
 
 ## Step 1: Add Dependencies
 
@@ -88,10 +89,14 @@ client.receive { signal ->
         )
         is GeneratorSignal.SendInput -> {
             schemaAdapter.process(
-                options = GenerationOptions(signal.args), 
+                options = GenerationOptions(/* retrieved via main args */), 
                 resolver = RSResolver(signal.files),
             )
-            emptyList()  // No further response needed
+            listOf(
+                PluginSignal.RequestStatusChange.Finished(
+                    message = "custom message"
+                )    
+            )
         }
     }
 }
@@ -107,6 +112,14 @@ Before deploying your plugin, it’s essential to test it to ensure that it reac
 <warning>
 This section is yet to be finalized.
 </warning>
+
+## Step 6: Using the plugin
+To use the plugin, simply specify the `--plugin` option when calling `rrgcli`:
+```Bash
+rrgcli --plugin=/path/to/plugin --help
+# or
+rrgcli --plugin="java -jar plugin.jar" --help
+```
 
 ## Conclusion
 
