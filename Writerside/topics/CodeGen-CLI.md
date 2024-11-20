@@ -61,6 +61,7 @@ Options:
 > 
 > By scoping metadata, you can maintain cleaner separation of concerns, particularly in larger projects with diverse requirements.
 
+Learn more about Metadata Generation at the [separate page](Metadata-Generation.md).
 
 ## Examples
 ### Generate Client Stubs and Types

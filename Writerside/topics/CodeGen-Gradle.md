@@ -79,6 +79,8 @@ These options are defined under the `kotlin` block:
     - **Example**:
       `metadataScopeName = "PotatoSchema"`
 
+Learn more about Metadata Generation at the [separate page](Metadata-Generation.md).
+
 ## Additional Notes
 - For projects with unusual directory structures or source sets, make sure to adjust targetSourceSet and protosInput accordingly.
 - Generated files should not be modified manually. They are regenerated during each build.
