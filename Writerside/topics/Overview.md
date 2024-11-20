@@ -2,7 +2,7 @@
 
 ## What is rRPC?
 
-rRPC abbreviation stands for RSocket + ProtoBuf. This framework is designed to expose APIs as RPC (Remote Procedure Call)
+rRPC abbreviation simply stands for RSocket + RPC. This framework is designed to expose APIs as RPC (Remote Procedure Call)
 Services, enabling the creation of gRPC-like services directly from `.proto` files through code generation. rRPC provides
 essential core components for both server and client-side development, making it easier to build scalable and efficient
 RPC services.
