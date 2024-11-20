@@ -41,14 +41,14 @@ rrgcli \
 
 ## Use Cases
 
-### Debugging with rRPC Inspector**
+### Debugging with rRPC Inspector
 The metadata integrates seamlessly with **rRPC Inspector**, providing a visual representation of the API schema. This helps developers:
-• Debug API services and methods.
-• Verify .proto definitions.
+- Debug API services and methods.
+- Verify .proto definitions.
 ### Runtime Schema Analysis
 Although the metadata is static, it can be used at runtime for tasks like:
-• Validating incoming requests.
-• Custom routing or method discovery.
+- Validating incoming requests.
+- Custom routing or method discovery.
 ### API Documentation
 Metadata can be consumed to generate automated documentation, reflecting the latest .proto schema.
 
