@@ -13,6 +13,7 @@
     <toc-element toc-title="Features">
         <toc-element topic="Request-Response-Interceptors.md"/>
         <toc-element topic="Instances.md"/>
+        <toc-element topic="Metadata-Generation.md"/>
         <toc-element topic="ProtoBuf-Options.md"/>
     </toc-element>
 
@@ -28,8 +29,12 @@
 
     <toc-element topic="Compatibility-with-ProtoBuf.md"/>
     <toc-element topic="Implementation.md"/>
-    <toc-element topic="Plans.md"/>
+
+    <toc-element toc-title="GitHub Repository"
+                 href="https://github.com/timemates/rrpc-kotlin"/>
 
     <toc-element toc-title="Community"
                  href="https://t.me/rspcommunity"/>
+
+    <toc-element topic="Plans.md"/>
 </instance-profile>
