@@ -23,31 +23,50 @@ The plugin is configured using the rrpc extension, allowing customization for .p
 ### Basic Example
 ```Kotlin
 rrpc {
-    targetSourceSet.set("commonMain") // Specify the source set for generated code
-    protosInput.set(listOf("src/main/proto")) // Define where to find .proto files
+    // Configuring the input sources for .proto files
+    inputs {
+        // Adding a directory containing .proto files
+        directory(file("src/main/proto"))
 
-    kotlin {
-        output = "build/generated/kotlin" // Specify output directory
-        clientGeneration = true // Generate client stubs
-        serverGeneration = true // Generate server stubs
-        typeGeneration = true // Generate data types
-        metadataEnabled = true // Enable metadata generation
-        metadataScopeName = "MyScope" // Define metadata scope
+        // Adding an artifact (e.g., JAR or KLIB) containing .proto files
+        artifact(
+            file = file("libs/protos.jar"), 
+            includes = listOf("org/timemates/internal")
+        )
+
+        // Adding an external dependency artifact
+        artifact(
+            id = "com.example:proto-library:1.0.0", 
+            excludes = listOf("org/timemates/internal"),
+        )
     }
+
+    // Configuring plugins for code generation
+    plugins {
+        // enable kotlin generation
+        kotlin {
+            // Plugin-specific options
+            output = "build/generated/rrpc-kotlin"
+            clientGeneration = true
+            serverGeneration = true
+        }
+
+        // External plugin configuration
+        external("com.example:typescript-generator:2.0.0") {
+            put("typescriptModule", "CommonJS")
+            put("outputDir", "build/generated/typescript")
+        }
+    }
+
+    // Enabling package cycles if necessary
+    permitPackageCycles = true
 }
 ```
+The plugin automatically register its outputs for Kotlin (Multiplatform, Android, other named `main`) source sets for correct execution order. If you have
+custom project, you can override its behavior by referencing to the outputs of `GenerateRRpcCodeTask`.
 
 ### Configuration Properties
-
-#### `targetSourceSet`
-- **Purpose:** Specifies the source set for code generation.
-- **Why it's important:** Code generation tasks depend on this source set to correctly manage input and output directories for the build process. For instance, setting `commonMain` ensures that the generated files are included in the correct build phase. Especially useful for the custom source-set layouts.
-- **Default:** `null` (falls back to default source sets like `commonMain` or `main`).
-
-```Kotlin
-targetSourceSet.set("commonMain")
-```
-#### `protosInput`
+#### `inputs`
 - **Purpose**: Specifies the list of directories containing .proto files for generation.
 - **Default**: An empty list.
 
