@@ -5,7 +5,7 @@ Our implementation of ProtoBuf serialization supports a subset of ProtoBuf featu
 ## Unsupported ProtoBuf Features
 
 1. **Types**:
-    - **`uintXX` and `sfixedXX`**: Not supported due to limitations in `kotlinx.serialization.protobuf`.
+    - **`sfixedXX`**: Not supported due to limitations in `kotlinx.serialization.protobuf`.
 
 2. **Options**:
     - **File and Message Options**: Not supported. For use cases requiring these features, please [open an issue](#).
@@ -17,12 +17,12 @@ Our implementation of ProtoBuf serialization supports a subset of ProtoBuf featu
     - **`google.protobuf.Any`**: Not supported. Arbitrary message types cannot be embedded.
     - **Reserved Fields**: Not supported. Reserved fields are ignored.
     - **Extensions**: Not supported. Custom fields must be defined within standard message structures.
-    - **Proto2**: Not supported. Only Proto3 syntax is supported.
+    - **Proto2**: Not supported. Only Proto3 syntax is supported, even though you may still use proto2 syntax with obvious limitations.
 
 ## Supported ProtoBuf Features
 
 1. **Scalar Types**:
-    - All scalar types are supported except `uintXX` and `sfixedXX`.
+    - All scalar types are supported except `sfixedXX` (`kotlinx.serialization.protobuf` does not support this type at the moment).
 
 2. **Complex Types**:
     - **Maps and Repeated Fields**: Fully supported, allowing for flexible data structures.
@@ -41,6 +41,6 @@ Our implementation of ProtoBuf serialization supports a subset of ProtoBuf featu
 6**Generated Protos**:
     - Protos generated from `.proto` files are supported similarly to user-defined protos.
 
-For features not supported or additional requirements, please [open an issue](https://github.com/timemates/rrpc/issues/new/choose) to discuss potential support or contributions. This will help us understand and potentially address your use cases.
+For features not supported or additional requirements, please [open an issue](https://github.com/timemates/rrpc-kotlin/issues/new/choose) to discuss potential support or contributions. This will help us understand and potentially address your use cases.
 
 You may also want to learn more about options and how they're handled [here](Kotlin-ProtoBuf-Options.md).

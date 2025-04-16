@@ -31,7 +31,7 @@ For `ServerMetadata` it's the same.
 There are five types of requests in RSocket: Request-Response, Request-Stream, Request-Channel, Fire-And-Forget 
 and Metadata-Push.
 
-For now, we support only Request-Response, Request-Stream and Request-Channel:
+We support all types of those requests, but Fire-And-Forget and Metadata-Push are experimental:
 
 | proto                                                 | Request Type     |
 |-------------------------------------------------------|------------------|
@@ -42,13 +42,13 @@ For now, we support only Request-Response, Request-Stream and Request-Channel:
 | `rpc (timemate.rrpc.Ack) returns (timemate.rrpc.Ack)` | Metadata-Push    |
 
 Client-only streaming is not supported by transport (RSocket), so we don't support it either. We support other
-request types by annotation type called `Ack`, here's [an issue](https://github.com/timemates/rrpc/issues/9) to discuss.
+request types by annotation type called `Ack`, here's [an issue](https://github.com/timemates/rrpc-kotlin/issues/9) to discuss.
 
 
 ___________________________________
 
 
-That's all what you probably need to know. Implementation is very simple and requires not a many efforts.
+That's all what you probably need to know. Implementation is very simple and requires no many efforts.
 
 
 
