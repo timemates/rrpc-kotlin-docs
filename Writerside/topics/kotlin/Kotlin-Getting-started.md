@@ -76,7 +76,7 @@ rrpc {
 
 Once configured, place your `.proto` files into the source directory and define services and messages:
 
-```protobuf
+```
 syntax = "proto3";
 
 message Foo {
