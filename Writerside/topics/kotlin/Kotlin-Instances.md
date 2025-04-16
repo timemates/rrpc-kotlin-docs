@@ -39,7 +39,7 @@ To provide your instance, just simply add it into your client / server configura
 <tabs>
     <tab title="Server">
         <code-block lang="kotlin">
-    val module = rRPCModule { // this: rRPCModuleBuilder
+    val module = RRpcModule { // this: rRPCModuleBuilder
       // services and other ...
       instances {
         register(MyInstance())
@@ -49,7 +49,7 @@ To provide your instance, just simply add it into your client / server configura
     </tab>
     <tab title="Client">
         <code-block lang="kotlin">
-    val configuration = rRPCClientConfig {
+    val configuration = RRpcClientConfig.create {
       instances {
         register(MyInstance())
       }

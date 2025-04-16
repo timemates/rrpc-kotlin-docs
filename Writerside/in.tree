@@ -3,29 +3,30 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="in"
-                 name="rRPC Documentation"
-                 start-page="Section-Starting-Page.topic">
+                  name="rRPC Documentation"
+                  start-page="Section-Starting-Page.topic">
 
     <toc-element topic="Section-Starting-Page.topic"/>
     <toc-element topic="Overview.md"/>
-    <toc-element topic="Getting-started.md"/>
 
-    <toc-element toc-title="Features">
-        <toc-element topic="Request-Response-Interceptors.md"/>
-        <toc-element topic="Instances.md"/>
-        <toc-element topic="Metadata-Generation.md"/>
-        <toc-element topic="ProtoBuf-Options.md"/>
+    <toc-element toc-title="Kotlin">
+        <toc-element topic="Kotlin-Getting-started.md"/>
+
+        <toc-element toc-title="Features">
+            <toc-element topic="Kotlin-Request-Response-Interceptors.md"/>
+            <toc-element topic="Kotlin-Instances.md"/>
+            <toc-element topic="Kotlin-Metadata-Generation.md"/>
+            <toc-element topic="Kotlin-ProtoBuf-Options.md"/>
+        </toc-element>
+        <toc-element topic="Kotlin-Generation-Plugin.md"/>
     </toc-element>
 
-    <toc-element toc-title="Code generation">
-        <toc-element toc-title="Instruments">
-            <toc-element topic="CodeGen-Gradle.md" />
-            <toc-element topic="CodeGen-CLI.md" />
-        </toc-element>
-        <toc-element toc-title="Plugins">
-            <toc-element topic="CodeGen-Plugins.md" />
-        </toc-element>
+    <toc-element toc-title="Tooling">
+        <toc-element topic="Tooling-Gradle.md"/>
+        <toc-element topic="Tooling-CLI.md"/>
     </toc-element>
+
+    <toc-element topic="Custom-Plugins.md"/>
 
     <toc-element topic="Compatibility-with-ProtoBuf.md"/>
     <toc-element topic="Implementation.md"/>

@@ -104,18 +104,22 @@ To register your interceptor, just add it to your rRPCClientConfig / rRPCModule:
 <tabs>
     <tab title="Server">
         <code-block lang="kotlin">
-    val module = rRPCModule { // this: rRPCModuleBuilder
+    val module = RRpcModule { // this: RRpcModuleBuilder
       // services and other ...
-      requestInterceptor(MyRequestInterceptor())
-      responseInterceptor(MyRequestInterceptor())
+      interceptors {
+        request(MyRequestInterceptor())
+        response(MyRequestInterceptor())
+      }
     }
 </code-block>
     </tab>
     <tab title="Client">
         <code-block lang="kotlin">
-    val configuration = rRPCClientConfig {
-      requestInterceptor(MyRequestInterceptor())
-      responseInterceptor(MyRequestInterceptor())
+    val configuration = RRpcClientConfig.create {
+      interceptors {
+        request(MyRequestInterceptor())
+        response(MyRequestInterceptor())
+      }
     }
         </code-block>
     </tab>

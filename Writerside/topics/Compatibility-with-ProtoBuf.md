@@ -22,7 +22,7 @@ Our implementation of ProtoBuf serialization supports a subset of ProtoBuf featu
 ## Supported ProtoBuf Features
 
 1. **Scalar Types**:
-    - All scalar types are supported except `uintXX` and `sfixedXX`. This includes `string` and other standard types.
+    - All scalar types are supported except `uintXX` and `sfixedXX`.
 
 2. **Complex Types**:
     - **Maps and Repeated Fields**: Fully supported, allowing for flexible data structures.
@@ -36,13 +36,11 @@ Our implementation of ProtoBuf serialization supports a subset of ProtoBuf featu
     - Supported through Kotlin primitives, but nullable. This approach may be reconsidered in future updates (until 1.0).
 
 5. **Custom Options**:
-    - Supported, provided the type is not `bytes`. Other types for custom options are handled.
-6. **Default Values**:
-    - Supported only for options. Default values for other fields are not managed as it's not supported by protobuf 3.
+    - Supported all types, except `google.protobuf.Any`.
 
-7. **Generated Protos**:
+6**Generated Protos**:
     - Protos generated from `.proto` files are supported similarly to user-defined protos.
 
 For features not supported or additional requirements, please [open an issue](https://github.com/timemates/rrpc/issues/new/choose) to discuss potential support or contributions. This will help us understand and potentially address your use cases.
 
-You may also want to learn more about options and how they're handled [here](ProtoBuf-Options.md).
+You may also want to learn more about options and how they're handled [here](Kotlin-ProtoBuf-Options.md).
